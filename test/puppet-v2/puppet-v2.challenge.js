@@ -134,7 +134,7 @@ describe("[Challenge] Puppet v2", function () {
         `${ethers.utils.formatEther(requiredWETHDeposit)} weth`
     );
 
-    // Convert weth to eth
+    // Convert eth to weth
     const playerEthBalance = await ethers.provider.getBalance(player.address);
     console.log(
       `player eth balance after swap: ${ethers.utils.formatEther(

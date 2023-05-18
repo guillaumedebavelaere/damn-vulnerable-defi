@@ -35,3 +35,5 @@ Here the intention was to pay the seller, but as we transfer the nft, the `_toke
 
 To exploit these vulnerabilities, we can take an UniswapV2 flashswap to be able to buy all the nft for the price of one and get all the corresponding eth value.
 Then we can send the nft to the dev, payback the "loan", and get all the remaining eth.
+
+contracts/free-rider/FreeRiderAttacker.sol
